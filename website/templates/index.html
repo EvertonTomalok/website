@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block title %} Everton Tomalok - Home {% endblock %}
+{% block head %}
+    {{ super() }}
+{% endblock %}
+
+{% block body %}
+    <header class="masthead mb-auto">
+        <div class="inner">
+        <h3 class="masthead-brand">Everton Tomalok</h3>
+        <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="/index">Sobre mim</a>
+            <a class="nav-link" href="/projetos">Projetos</a>
+            <a class="nav-link" href="/contato">Contato</a>
+        </nav>
+        </div>
+    </header>
+
+    <main role="main" class="inner cover">
+        <br>
+        <br>
+        <h1 class="cover-heading">Quem sou?</h1>
+        <p class="lead"></p>
+        <p class="lead">Me chamo Everton Tomalok, e tenho 26 anos. Este é meu site pessoal, aonde falo um pouco sobre quem sou,
+            e também irei disponibilizar alguns modelos de machine learning ou módulos python de minha autoria.</p>
+        <p class="lead">Atualmente, sou data scientist e data engineer, na <a href="https://www.ramper.com.br" target="_blank">Ramper</a>, uma startup que cresce 20% ao mês.</p>
+        <p class="lead">Tenho background em desenvolvimento Java e Python.</p><br>
+
+        <h2>Skills:</h2>
+        <p>- Grande habilidade com web crawlers / scraping, utilizando as ferramentas scrapy, requests+bs4, selenium e cheerio.js</p>
+        <p>- Python (Avançado), Java, R, Node.js, JavaScript, HTML e CSS</p>
+        <p>- Aplicações Web utilizando ferramentas como Flask, Django e MEAN Stack.</p>
+        <p>- Classificação de sentimentos, com algoritmos de NLP, utilizando TextBlob, spacy.io e NLTK</p>
+        <p>- Machile Learning utilizando scikit-learn</p>
+        <p>- Visão Computacional utilizando OpenCV e OCR</p>
+        <p>- Deep Learning com TensorFlow e Keras</p>
+        <p>- Bancos NoSql: Domínio em MongoDB, conhecimentos em Cassandra.</p>
+        <p>- Bancos SQL: Conhecimentos em bancos como Postgresql, MariaDB, SQLite3, e  MySQL.</p>
+        <p>- Análise de dados, utilizando ferramentas como pandas, numpy, Scipy</p>
+        <p>- Projeção de informações utilizando Matplotlib, seaborn, plot.ly, entre outras</p>
+
+        <br>
+        <p class="lead"></p>
+        <p class="lead">
+        <a href="/projetos" class="btn btn-lg btn-secondary">Visite meus projetos</a>
+        </p>
+    </main>
+
+{% endblock %}

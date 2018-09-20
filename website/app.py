@@ -1,7 +1,7 @@
 # coding: utf-8
 
 from flask import Flask, url_for, render_template, redirect, request, flash
-# from wtforms import Form, TextField, TextAreaField, validators, StringField, SubmitField
+from controllers.controllers import *
 
 
 app = Flask(__name__)
@@ -22,9 +22,25 @@ def index():
     return render_template('index.html')
 
 
-@app.route('/contato')
+@app.route('/contato', methods=['GET', 'POST'])
 def contato():
-    return render_template('contato.html')
+    if request.method == "POST":
+        autor = request.form.get('autor', '')
+        mensagem = request.form.get('mensagem', '')
+        email = request.form.get('email', '')
+
+        insert_message(autor, mensagem, email)
+
+        return redirect('contato')
+
+    data = []
+    conteudo = find_messages()
+
+    for cont in conteudo:
+        cont['data'] = cont['data'].strftime('%d/%m/%y %H:%M:%S')
+        data.append(cont)
+
+    return render_template('contato.html', data=data)
 
 
 @app.route('/projetos')
@@ -34,3 +50,4 @@ def projetos():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=3000, threaded=True)
+

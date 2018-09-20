@@ -20,8 +20,82 @@
     <main role="main" class="inner cover">
         <br>
         <br>
-        <h1 class="cover-heading">Contate-me</h1>
-        <p class="lead"><b>Email:</b> evertontomalok123@gmail.com</p>
-        <p class="lead">Telefone: Informarei via email!</p>
+        <div align='justify'>
+            <h1 class="cover-heading"><b>Contate-me</b></h1>
+            <p class="lead">&nbsp; Email: evertontomalok123@gmail.com</p>
+            <p class="lead">&nbsp; Telefone: Informarei via email!</p>
+
+            <br>
+            <div class="row">
+                <h3 class="cover-heading">&nbsp;&nbsp;<b> Deixe-me uma mensagem</b></h3> &nbsp; &nbsp; &nbsp;
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                  Nova mensagem
+                </button>
+
+            </div>
+
+            <br>
+            <br>
+
+            <!-- The Modal -->
+            <div class="modal" id="myModal">
+              <div class="modal-dialog">
+                <div class="modal-content">
+
+                  <!-- Modal Header -->
+                  <div class="modal-header">
+                    <h4 class="modal-title"><font color="black">Deixe aqui sua mensagem</font></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  </div>
+
+                  <!-- Modal body -->
+                  <div class="modal-body">
+                    <div class="form-group">
+                        <form action="/contato" method="POST">
+                            <label for="autor"><font color="black">Autor:</font></label>
+                            <input type="text" class="form-control" id="autor" name="autor" value="Anonimo" required><br>
+                            <label for="email"><font color="black">Email: (não será mostrado publicamente)</font></label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="email" required><br>
+                            <label for="mensagem"><font color="black">Mensagem:</font></label>
+                            <textarea class="form-control" rows="5" id="mensagem" name="mensagem" required></textarea>
+                            <br>
+
+                            <button type="submit" class="btn btn-primary">Salvar</button>
+                        </form>
+                    </div>
+                  </div>
+
+                  <!-- Modal footer -->
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Sair</button>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+
+            {% if data %}
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="container">
+                    {% for d in data %}
+
+                        <div class="card" align='justify'>
+                            <div class="card-body">
+                                <font color="black" size="1">Em {{ d.data }}</font><br>
+                                <font color="black"><h5>{{ d.author }} </h5></font>
+                                <font color="black" size="2">{{ d.message }}</font>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+        </div>
     </main>
+<br>
+<br>
 {% endblock %}

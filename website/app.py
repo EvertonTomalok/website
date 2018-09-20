@@ -1,11 +1,13 @@
 # coding: utf-8
 
 from flask import Flask, url_for, render_template, redirect, request
+from werkzeug.security import generate_password_hash
+
 from controllers.controllers import *
 
 
 app = Flask(__name__)
-app.secret_key = b'@afdwap2i124Safmo13591_)(+=.,s24_0921asQWfdqe'
+app.secret_key = generate_password_hash('@afdwap2i124Safmo13591_)(+=.,s24_0921asQWfdqe')
 
 
 @app.route('/')

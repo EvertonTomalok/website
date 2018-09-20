@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from flask import Flask, url_for, render_template, redirect, request, flash
+from flask import Flask, url_for, render_template, redirect, request
 from controllers.controllers import *
 
 

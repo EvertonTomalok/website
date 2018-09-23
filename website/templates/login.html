@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Log in</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='css/login.css') }}" rel="stylesheet">
+  </head>
+
+  <body class="text-center">
+
+    <div class="row" style="margin: auto auto auto auto;">
+            <form class="form-signin" method="POST" action="/admin">
+
+              <h1 class="h3 mb-3 font-weight-normal">Digite o login e a senha</h1>
+              {% if invalido %}
+                    <p class="alert alert-danger" role="alert">
+                        Login e/ou Senha inválido
+                    </p>
+              {% endif %}
+
+              {% if logar %}
+                    <p class="alert alert-danger" role="alert">
+                        Você precisa logar!
+                    </p>
+              {% endif %}
+              <label for="login" class="sr-only">login</label>
+              <input type="text" id="login" name="login" class="form-control" placeholder="Login" required autofocus>
+              <label for="senha" class="sr-only">Password</label>
+              <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" required>
+              <button class="btn btn-lg btn-primary btn-block" type="submit">Entrar</button>
+            </form>
+    </div>
+  </body>
+</html>

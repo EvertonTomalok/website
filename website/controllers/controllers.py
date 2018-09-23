@@ -1,4 +1,5 @@
 from model.connections import make_connection
+from bson.objectid import ObjectId
 from datetime import datetime
 
 cursor = make_connection()
@@ -18,3 +19,7 @@ def insert_message(autor, message, email):
     }
 
     cursor.insert_one(inserir)
+
+
+def delete_message_by_id(_id):
+    cursor.delete_one({'_id': ObjectId(_id)})

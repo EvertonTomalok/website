@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <button class="btn btn-info" style="position: absolute; right: 15%;"><a href="/logout">Sair</a></button>
+        <br>
+        <div class="container">
+            <br>
+            <h1>Mensagens: </h1>
+            <br>
+            {% if data %}
+                <ul class="list-group list-group-flush" style="margin-left: 10%; margin-right: 10%;">
+                  {% for d in data %}
+                      <li class="list-group-item">
+                          <b>Data:</b> {{ d.data }} <br>
+                          <b>Autor:</b> {{ d.author }} <br>
+                          <b>Email:</b> {{ d.email }} <br>
+                          <b>Messagem:</b> {{ d.message }} <br>
+                      </li>
+                      <div class="row">
+                          &nbsp; &nbsp;&nbsp;
+                          <button class="btn btn-primary" ><a href="/update"><font color="white">Update</font></a></button>&nbsp;&nbsp;
+                          <button class="btn btn-danger" ><a href="/deletarMensagem?_id={{ d._id }}"><font color="white">Deletar</font></a></button>
+                      </div>
+                      <br>
+                  {% endfor %}
+                </ul>
+            {% else %}
+                <p>Sem mensagens</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
